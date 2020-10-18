@@ -17,6 +17,7 @@ ORDER BY YEAR
 #### Question 1.2
 
 Suppose you had the fact table, Table 1-3. Construct a query to calculate the year-on-year comparison of quarter-to-date revenue as in Table 1-4.
+
 Answer:
 ```SQL
 SELECT
