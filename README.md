@@ -1,1 +1,12 @@
-# TA_Assessment
+#### Question 1.1
+
+```SQL
+SELECT YEAR, COUNT(CUSTOMER) AS CountOfDistinctCustomers
+FROM (
+		SELECT YEAR, CUSTOMER
+		FROM table_1_1
+		GROUP BY YEAR, CUSTOMER
+		) AS t
+GROUP BY YEAR
+ORDER BY YEAR
+```
