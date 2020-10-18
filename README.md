@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS aux_weekdays (
 	DATE DATE UNIQUE
 );
 
-INSERT INTO aux_weekdays (DATE) VALUES 
+INSERT INTO aux_weekdays (WEEKDAY, DATE) VALUES 
 ('tuesday','2016-1-5'), ('tuesday','2016-1-12'), ('tuesday','2016-1-19'), ('tuesday','2016-1-26'), ('tuesday','2016-2-2'), ('tuesday','2016-2-9'), ('tuesday','2016-2-16'),
 ('tuesday','2016-2-23'), ('tuesday','2016-3-1'), ('tuesday','2016-3-8'), ('tuesday','2016-3-15'), ('tuesday','2016-3-22'), ('tuesday','2016-3-29'), ('tuesday','2016-4-5'),
 ('tuesday','2016-4-12'), ('tuesday','2016-4-19'), ('tuesday','2016-4-26'), ('tuesday','2016-5-3'), ('tuesday','2016-5-10'), ('tuesday','2016-5-17'), ('tuesday','2016-5-24'),
@@ -141,7 +141,7 @@ SELECT t1.DATE, COUNT(t1.TEST_NAME) AS "number_of_active_test"
 FROM (
 	SELECT t.*, td.DATE
 	FROM table_2_8 AS t
-	LEFT JOIN aux_tuesdays AS td ON t.START_DATE <= td.DATE AND t.END_DATE >= td.DATE AND td.WEEKDAY = "tuesday"
+	LEFT JOIN aux_weekdays AS td ON t.START_DATE <= td.DATE AND t.END_DATE >= td.DATE AND td.WEEKDAY = "tuesday"
 ) AS t1
 WHERE t1.DATE IS NOT NULL
 GROUP BY t1.DATE
