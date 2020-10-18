@@ -1,9 +1,17 @@
 /*--------------------------------------
---  Author: Frederico Rivera Ferreira (frerferreira@gmail.com)
+--  Author: Frederico Rivera Ferreira
 --  Homework Test from TripAdvisor
 --------------------------------------*/
+/*
+1. Database Queries
 
-/* Question 1.1 */
+For this set of questions, please provide the SQL code for the query(ies) required to perform the data extraction.
+*/
+
+/* Question 1.1 
+Without using the ‘distinct’ function, write a query to return the result set in Table 2-2 from the values in Table 2-1.
+*/
+
 SELECT YEAR, COUNT(CUSTOMER) AS CountOfDistinctCustomers
 FROM (
 		SELECT YEAR, CUSTOMER
@@ -13,7 +21,11 @@ FROM (
 GROUP BY YEAR
 ORDER BY YEAR;
 
-/* Question 1.2 */
+
+/* Question 1.2 
+Suppose you had the fact table, Table 1-3. Construct a query to calculate the year-on-year comparison of quarter-to-date revenue as in Table 1-4.
+*/
+
 SELECT
 c.YEAR,
 c.QUARTER,
@@ -34,7 +46,11 @@ LEFT JOIN table_1_3 AS d ON (c.YEAR-1) = d.YEAR AND c.MONTH >= d.MONTH AND c.QUA
 GROUP BY c.YEAR, c.QUARTER, c.MONTH
 ORDER BY c.YEAR, c.MONTH;
 
-/* Question 1.3 */
+
+/* Question 1.3 
+Without using the Crosstab or Pivot statement, construct the SQL statement to convert Table 1-3 into the pivoted form in Table 1-5.
+*/
+
 SELECT
 QUARTER,
 SUM(CASE WHEN YEAR=2005 THEN BOOKING_REVENUE ELSE 0 END) AS "2005 Bookings",
@@ -43,7 +59,16 @@ SUM(CASE WHEN YEAR=2007 THEN BOOKING_REVENUE ELSE 0 END) AS "2007 Bookings"
 FROM table_1_3 AS t
 GROUP BY QUARTER;
 
-/* Question 2.1 */
+/*
+2. Data Transformation Examples
+
+In this set of questions, you are asked to design a data transformation processes that will work in any SQL compliant DB (Postgres, MSSQL, MySQL, etc…). The process should produce the requested output tables and should only require updates to a fix set of predefined tables (no manual intermediate steps).
+*/
+
+/* Question 2.1 
+Calculate the net price (= List Price x (1-Discount) ) for each transaction based on the discount structure available to each partner.  The inputs are Tables 2-1 to 2-6 and the output table should be Table 2-7.
+*/
+
 SELECT 
 t3.QUARTER,
 t3.PRODUCT,
@@ -80,7 +105,11 @@ FROM (
 LEFT JOIN table_2_6 AS t26 ON t3.TIER = t26.TIER
 ORDER BY t3.QUARTER, t3.PRODUCT;
 
-/* Question 2.2 */
+
+/* Question 2.2 
+Provide the SQL code for the query(ies) to calculate the total number of tests running each Tuesday from 1/1/2016-2/1/2016. The inputs can be found in table 2-8. Desired result can be found in Table 2-9.
+*/
+
 CREATE TABLE IF NOT EXISTS aux_weekdays (
 	WEEKDAY CHAR(255),
 	DATE DATE UNIQUE
@@ -106,7 +135,11 @@ WHERE t1.DATE IS NOT NULL
 GROUP BY t1.DATE
 ORDER BY t1.DATE;
 
-/* Question 2.3 */
+
+/* Question 2.3 
+Create Table 2-11, the Customer Master augmented with the best-guess DUNS number, from Table 3-10 the bare Customer Master. Select the DUNS number based on the closest match by city, state, and country in that order.
+*/
+
 CREATE TABLE Customer_Master_Best_Guess_DUNS_Numbers
 	SELECT 
 	t.CUSTOMER_SITE_ID,
