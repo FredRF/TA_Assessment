@@ -1,5 +1,10 @@
 _This exercise was performed using MariaDB (MySQL) v10.4.12 on Windows 10_
 
+## Instructions
+* Create a database
+* Execute the Create Tables SQL Script
+* Execute the queries listed below or the SQL Script
+
 ## 1. Database Queries
 
 For this set of questions, please provide the SQL code for the query(ies) required to perform the data extraction.
