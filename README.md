@@ -3,7 +3,7 @@ _This exercise was performed using MariaDB (MySQL) v10.4.12 on Windows 10_
 ## Instructions
 * Create a database
 * Execute the Create Tables SQL Script
-* Execute the queries listed below or the SQL Script
+* Execute the queries listed below or the SQL Script in the repo
 
 ## 1. Database Queries
 
