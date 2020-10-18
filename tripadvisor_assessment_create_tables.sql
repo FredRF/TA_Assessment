@@ -1,5 +1,5 @@
 /*--------------------------------------
---  Author: Frederico Rivera Ferreira (frerferreira@gmail.com)
+--  Author: Frederico Rivera Ferreira
 --  Homework Test from TripAdvisor
 --------------------------------------*/
 
