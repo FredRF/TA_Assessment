@@ -1,4 +1,4 @@
-* This exercise was performed using MariaDB (MySQL) v10.4.12 on Windows 10 *
+_This exercise was performed using MariaDB (MySQL) v10.4.12 on Windows 10_
 
 ## 1. Database Queries
 
